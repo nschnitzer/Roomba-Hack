@@ -5,11 +5,13 @@
 
 from __future__ import print_function
 from pycreate2 import Create2
+import subprocess
+import os
 import time
 
 
 if __name__ == "__main__":
-	port = '/dev/tty.usbserial-DA01NX3Z'
+	port = '/dev/tty.usbserial-DN026E5R'
 	baud = {
 		'default': 115200,
 		'alt': 19200  # shouldn't need this unless you accidentally set it to this
@@ -21,12 +23,23 @@ if __name__ == "__main__":
 
 	bot.safe()
 
+        audio_file = "/Users/John/Documents/PythonTesting/pycreate2/examples/Ready.mp3"
+
 	print('Starting ...')
 
 	while True:
 		# Packet 100 contains all sensor data.
-		sensor_state = bot.get_sensors()
+		sensor = bot.get_sensors()
 
 		print('==============Updated Sensors==============')
-		print(sensor_state)
-		time.sleep(2)
+                print("Bumps and wheeldrops: " + str(sensor[0]))
+                print(sensor[0])
+                print(sensor[0].bump_left)
+                print(sensor[0].bump_right)
+
+                if sensor[0].bump_left == True:
+                   return_code = subprocess.call(["afplay", audio_file])
+                elif sensor[0].bump_right == True:
+                    return_code = subprocess.call(["afplay", audio_file])
+
+                time.sleep(1)
