@@ -44,6 +44,7 @@ clock = pygame.time.Clock()
 #Detect keypresses and hits
 while True:
     #Check for hit detections
+    time.sleep(.5)
     bumpers = bot.getBumpers()
     print(str(bumpers))
     if bumpers[0]:
