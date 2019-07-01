@@ -16,6 +16,9 @@ def handle_events():
 # Create a Create 2 -- Connect over serial
 bot = Robot()
 
+
+pygame.init()
+
 # Play a note
 bot.playNote('A4', 100)
 
@@ -33,18 +36,22 @@ bot.setTurnSpeed(0)
 #while (time.time() - start_time) < 30:
 #    print('Bumpers" ' + str(bot.getBumpers()) + '   Wall: ' + str(bot.getWallSensor()))
 
+clock = pygame.time.Clock()
 
 #Detect keypresses and hits
 while True:
     #Check for hit detections
     bumpers = bot.getBumpers()
+    print(str(bumpers))
     if bumpers[0]:
         bot.stop()
-        playsound()
+        #playsound()
+        bot.playNote('A4', 30)
         bot.start()
     elif bumpers[1]:
         bot.stop()
-        playsound()
+        #playsound()
+        bot.playNote('A4', 60)
         bot.start()
     #configure walls later
 
