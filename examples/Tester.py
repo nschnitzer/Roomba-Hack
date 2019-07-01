@@ -4,6 +4,7 @@ from breezycreate2 import Robot
 import time
 import pygame
 import playsound
+import os
 
 
 # pip install -i https://test.pypi.org/simple/ BreezyCreate2
@@ -19,8 +20,10 @@ def handle_events():
 # Create a Create 2 -- Connect over serial
 bot = Robot()
 
-
+#os.environ["SDL_VIDEODRIVER"] = "dummy"
 pygame.init()
+size = [700,500]
+screen = pygame.display.set_mode(size)
 
 # Play a note
 bot.playNote('A4', 100)
