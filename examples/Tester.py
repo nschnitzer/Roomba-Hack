@@ -46,15 +46,15 @@ while True:
     bumpers = bot.getBumpers()
     print(str(bumpers))
     if bumpers[0]:
-        bot.stop()
+        bot.setForwardSpeed(0)
+        bot.setTurnSpeed(0)
         #playsound()
         bot.playNote('A4', 30)
-        bot.start()
     elif bumpers[1]:
-        bot.stop()
+        bot.setForwardSpeed(0)
+        bot.setTurnSpeed(0)
         #playsound()
         bot.playNote('A4', 60)
-        bot.start()
     #configure walls later
 
     #handle keypresses
