@@ -10,7 +10,8 @@ import playsound
 
 def handle_events():
     for event in pygame.event.get():
-        
+        print(event.type)
+        print(event.key)
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_w and event.key == pygame.K_a:
                 print('wa')
@@ -44,7 +45,6 @@ clock = pygame.time.Clock()
 while True:
     #Check for hit detections
     bumpers = bot.getBumpers()
-    time.sleep(1)
     print(str(bumpers))
     if bumpers[0]:
         bot.setForwardSpeed(0)
