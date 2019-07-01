@@ -44,13 +44,14 @@ clock = pygame.time.Clock()
 while True:
     #Check for hit detections
     bumpers = bot.getBumpers()
+    time.sleep(1)
     print(str(bumpers))
     if bumpers[0]:
         bot.setForwardSpeed(0)
         bot.setTurnSpeed(0)
         #playsound()
         bot.playNote('A4', 30)
-    elif bumpers[1]:
+    elif bumpers[1]:    
         bot.setForwardSpeed(0)
         bot.setTurnSpeed(0)
         #playsound()
