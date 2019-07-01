@@ -10,13 +10,13 @@ import os
 # pip install -i https://test.pypi.org/simple/ BreezyCreate2
 
 def handle_events():
-    for event in pygame.event.get():
-        print(str(event))
-        print(event.type)
-        print(pygame.KEYDOWN)
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_w and event.key == pygame.K_a:
-                print('wa')
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_a]:
+        print('a')
+    elif keys[pygame.K_w]:
+        print('w')
+    elif keys[pygame.K_w] and keys[pygame.K_a]:
+        print('wa')
 
 # Create a Create 2 -- Connect over serial
 bot = Robot()
@@ -48,7 +48,7 @@ clock = pygame.time.Clock()
 #Detect keypresses and hits
 while True:
     #Check for hit detections
-    time.sleep(.5)
+    time.sleep(.75)
     bumpers = bot.getBumpers()
     print(str(bumpers))
     if bumpers[0]:
