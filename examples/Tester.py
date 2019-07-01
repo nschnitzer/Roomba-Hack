@@ -11,8 +11,9 @@ import os
 
 def handle_events():
     for event in pygame.event.get():
+        print(str(event))
         print(event.type)
-        print(event.key)
+        print(pygame.KEYDOWN)
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_w and event.key == pygame.K_a:
                 print('wa')
