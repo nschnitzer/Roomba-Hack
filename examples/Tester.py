@@ -9,9 +9,11 @@ import playsound
 # pip install -i https://test.pypi.org/simple/ BreezyCreate2
 
 def handle_events():
-    if event.type == pygame.KEYDOWN:
-        if event.key == pygame.K_w and event.key == pygame.K_a:
-            print('wa')
+    for event in pygame.event.get():
+        
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_w and event.key == pygame.K_a:
+                print('wa')
 
 # Create a Create 2 -- Connect over serial
 bot = Robot()
